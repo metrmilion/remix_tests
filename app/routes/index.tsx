@@ -19,7 +19,7 @@ export default function Index() {
       <Box sx={{ width: "300px" }}>
         <img src="logo.svg" alt="eda" />
       </Box>
-
+      Cześć
       {user ? (
         <Link
           to="/notes"
