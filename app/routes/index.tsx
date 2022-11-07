@@ -22,7 +22,7 @@ export default function Index() {
       </Box>
 
       <Button variant="outlined" startIcon={<LockOutlinedIcon />} href="/login">
-        Log in
+        log in
       </Button>
     </Box>
   );
