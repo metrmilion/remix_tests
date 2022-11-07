@@ -2,7 +2,7 @@ import { Link } from "@remix-run/react";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 
 import { useOptionalUser } from "~/utils";
-import { Box, IconButton } from "@mui/material";
+import { Box, Button, IconButton } from "@mui/material";
 
 export default function Index() {
   const user = useOptionalUser();
@@ -21,13 +21,9 @@ export default function Index() {
         <img src="logo.svg" alt="eda" />
       </Box>
 
-      <IconButton
-        color="primary"
-        aria-label="add to shopping cart"
-        href="/login"
-      >
-        <LockOutlinedIcon />
-      </IconButton>
+      <Button variant="outlined" startIcon={<LockOutlinedIcon />} href="/login">
+        Log in
+      </Button>
     </Box>
   );
 }
