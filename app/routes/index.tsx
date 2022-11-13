@@ -35,15 +35,15 @@ export default function Index() {
             variant="contained"
             color="primary"
           >
-            Sign up
+            sign up
           </Button>
           <Button
             component={Link}
-            to="/about"
+            to="/login"
             variant="contained"
             color="primary"
           >
-            Sign in
+            sign in
           </Button>
         </div>
       )}
