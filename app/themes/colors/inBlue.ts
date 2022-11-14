@@ -1,0 +1,17 @@
+export const inBlue = {
+  50: "#e8ebfa",
+  100: "#c5ccf3",
+  200: "#9faaec",
+  300: "#7888e4",
+  400: "#5b6fde",
+  500: "#3e55d8",
+  600: "#384ed4",
+  700: "#3044ce",
+  800: "#283bc8",
+  900: "#1b2abf",
+  A100: "#f4f5ff",
+  A200: "#c1c6ff",
+  A400: "#8e97ff",
+  A700: "#747fff",
+  contrastDefaultColor: "light",
+};
