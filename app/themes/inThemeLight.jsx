@@ -94,7 +94,6 @@ export const inThemeLight = createTheme({
       styleOverrides: {
         root: {
           borderRadius: 28,
-          padding: "10px 16px",
           fontSize: "1rem",
           letterSpacing: 1,
         },
