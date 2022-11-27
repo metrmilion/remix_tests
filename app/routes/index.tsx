@@ -1,5 +1,3 @@
-import { Link } from "@remix-run/react";
-
 import { useOptionalUser } from "~/utils";
 import {
   Box,
@@ -7,12 +5,13 @@ import {
   Card,
   CardActions,
   CardContent,
+  Divider,
   Fade,
   Grid,
-  IconButton,
-  TextField,
+  Link,
   Typography,
 } from "@mui/material";
+import { Form } from "@remix-run/react";
 
 export default function Index() {
   const user = useOptionalUser();
@@ -24,9 +23,9 @@ export default function Index() {
       spacing={2}
       height="100vh"
     >
-      <Grid item xs={8} md={3}>
+      <Grid item xs={8} md={4} lg={3}>
         <Fade in={true}>
-          <Card sx={{ minWidth: 275 }}>
+          <Card>
             {/* <CardHeader
                         title={'Login'}
                         action={
@@ -43,11 +42,39 @@ export default function Index() {
                 <Typography variant="h5" align="center" sx={{ mb: 2 }}>
                   Welcome to the app!
                 </Typography>
+                <Typography align="center">
+                  LOCK is a simple tool to test the{" "}
+                  <Box component="span" sx={{ fontWeight: "600" }}>
+                    Hill Cypher
+                  </Box>
+                  .
+                </Typography>
+                <Divider>
+                  <Typography variant="overline">Definition</Typography>
+                </Divider>
+                <Typography
+                  sx={{
+                    textAlign: "justify",
+                    textAlignLast: "center",
+                    fontStyle: "italic",
+                    px: 2,
+                  }}
+                >
+                  In classical cryptography, the Hill cipher is a polygraphic
+                  substitution cipher based on linear algebra. Invented by
+                  Lester S. Hill in 1929, it was the first polygraphic cipher in
+                  which it was practical (though barely) to operate on more than
+                  three symbols at once.
+                </Typography>
+                <Divider>
+                  <Link href="https://en.wikipedia.org/wiki/Hill_cipher">
+                    <Typography variant="overline">
+                      Source: wikipedia
+                    </Typography>
+                  </Link>
+                </Divider>
                 <Typography align="center" sx={{ mb: 2 }}>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Doloremque eligendi iusto animi explicabo quaerat, sapiente
-                  ducimus velit ab error soluta minus. Qui quod veniam impedit
-                  provident sit aperiam perferendis quisquam?
+                  Please feel free to join and test.
                 </Typography>
               </Box>
               <Box
@@ -57,22 +84,27 @@ export default function Index() {
                   alignItems: "center",
                 }}
               >
-                <Button
-                  component={Link}
-                  to="/join"
-                  variant="contained"
-                  sx={{ mx: 1 }}
-                >
-                  sign up
-                </Button>
-                <Button
-                  component={Link}
-                  to="/login"
-                  variant="contained"
-                  sx={{ mx: 1 }}
-                >
-                  sign in
-                </Button>
+                {user ? (
+                  <>
+                    <Button href="/notes" variant="contained" sx={{ mx: 1 }}>
+                      My notes
+                    </Button>
+                    <Form action="/logout" method="post">
+                      <Button type="submit" variant="contained" sx={{ mx: 1 }}>
+                        Sign out
+                      </Button>
+                    </Form>
+                  </>
+                ) : (
+                  <>
+                    <Button href="/join" variant="contained" sx={{ mx: 1 }}>
+                      sign up
+                    </Button>
+                    <Button href="/login" variant="contained" sx={{ mx: 1 }}>
+                      sign in
+                    </Button>
+                  </>
+                )}
               </Box>
             </CardContent>
             <CardActions sx={{ justifyContent: "center" }}></CardActions>

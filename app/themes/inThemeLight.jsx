@@ -77,6 +77,9 @@ export const inThemeLight = createTheme({
                 font-weight: 600;
                 src: local('Barlow Condensed'), local('Barlow Condensed'), url(${BarlowCondensedSemiBoldItalic}) format('truetype');
               }
+              form {
+                margin:0;
+              }
             `,
     },
     MuiCard: {

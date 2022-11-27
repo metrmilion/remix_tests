@@ -10,4 +10,4 @@ node_modules
 
 /app/styles/tailwind.css
 
-/app/themes/fonts/
+#/app/themes/fonts/

@@ -6,7 +6,6 @@ import {
   Checkbox,
   FormControlLabel,
   Grid,
-  IconButton,
   TextField,
   Typography,
   Link,
@@ -101,9 +100,9 @@ export default function LoginPage() {
       spacing={2}
       height="100vh"
     >
-      <Grid item xs={8} md={3}>
+      <Grid item xs={8} md={2}>
         <Fade in={true}>
-          <Card sx={{ minWidth: 275 }}>
+          <Card sx={{ minWidth: 200 }}>
             <CardHeader title={"Sign in"} />
             <CardContent>
               <Form method="post" noValidate>
