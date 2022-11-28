@@ -45,9 +45,19 @@ export async function action({ request }: ActionArgs) {
     );
   }
 
-  if (password.length < 8) {
+  const regex = new RegExp(
+    "^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z]).{8,}$"
+  );
+
+  if (!regex.test(password)) {
     return json(
-      { errors: { email: null, password: "Password is too short" } },
+      {
+        errors: {
+          email: null,
+          password:
+            "Your password must be at least 8 characters including a lowercase letter, an uppercase letter, a number, and a special character.",
+        },
+      },
       { status: 400 }
     );
   }
@@ -104,12 +114,12 @@ export default function Join() {
       spacing={2}
       height="100vh"
     >
-      <Grid item xs={8} md={2}>
+      <Grid item xs={8} md={4} lg={3}>
         <Fade in={true}>
           <Card sx={{ minWidth: 200 }}>
             <CardHeader title={"Sign up"} />
             <CardContent>
-              <Form method="post" noValidate>
+              <Form method="post">
                 <TextField
                   fullWidth
                   label="e-mail"
@@ -140,13 +150,9 @@ export default function Join() {
                   type="password"
                   autoComplete="current-password"
                   aria-invalid={actionData?.errors?.password ? true : undefined}
-                  aria-describedby="password-error"
+                  helperText={actionData?.errors?.password}
+                  error={Boolean(actionData?.errors?.password)}
                 />
-                {actionData?.errors?.password && (
-                  <div className="pt-1 text-red-700" id="password-error">
-                    {actionData.errors.password}
-                  </div>
-                )}
                 <input type="hidden" name="redirectTo" value={redirectTo} />
                 <Button
                   variant="contained"
@@ -154,7 +160,7 @@ export default function Join() {
                   type="submit"
                   sx={{ my: 1 }}
                 >
-                  Register
+                  register
                 </Button>
               </Form>
               <Typography align="center">

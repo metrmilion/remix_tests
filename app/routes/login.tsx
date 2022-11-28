@@ -47,13 +47,6 @@ export async function action({ request }: ActionArgs) {
     );
   }
 
-  if (password.length < 8) {
-    return json(
-      { errors: { password: "Password is too short", email: null } },
-      { status: 400 }
-    );
-  }
-
   const user = await verifyLogin(email, password);
 
   if (!user) {
@@ -100,9 +93,9 @@ export default function LoginPage() {
       spacing={2}
       height="100vh"
     >
-      <Grid item xs={8} md={2}>
+      <Grid item xs={8} md={4} lg={3}>
         <Fade in={true}>
-          <Card sx={{ minWidth: 200 }}>
+          <Card>
             <CardHeader title={"Sign in"} />
             <CardContent>
               <Form method="post" noValidate>
@@ -136,13 +129,9 @@ export default function LoginPage() {
                   type="password"
                   autoComplete="current-password"
                   aria-invalid={actionData?.errors?.password ? true : undefined}
-                  aria-describedby="password-error"
+                  helperText={actionData?.errors?.password}
+                  error={Boolean(actionData?.errors?.password)}
                 />
-                {actionData?.errors?.password && (
-                  <div className="pt-1 text-red-700" id="password-error">
-                    {actionData.errors.password}
-                  </div>
-                )}
                 <FormControlLabel
                   control={
                     <Checkbox defaultChecked id="remember" name="remember" />

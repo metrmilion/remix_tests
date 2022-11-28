@@ -1,3 +1,4 @@
+import { Button } from "@mui/material";
 import type { LoaderArgs } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { Form, Link, NavLink, Outlet, useLoaderData } from "@remix-run/react";
@@ -24,12 +25,9 @@ export default function NotesPage() {
         </h1>
         <p>{user.email}</p>
         <Form action="/logout" method="post">
-          <button
-            type="submit"
-            className="rounded bg-slate-600 py-2 px-4 text-blue-100 hover:bg-blue-500 active:bg-blue-600"
-          >
-            Logout
-          </button>
+          <Button type="submit" variant="contained" sx={{ mx: 1 }}>
+            sign out
+          </Button>
         </Form>
       </header>
 
