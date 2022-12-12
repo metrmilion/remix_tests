@@ -1,0 +1,17 @@
+export const inPurple = {
+  50: "#f5e0ff",
+  100: "#e6b3ff",
+  200: "#d580ff",
+  300: "#c44dff",
+  400: "#b726ff",
+  500: "#aa00ff",
+  600: "#a300ff",
+  700: "#9900ff",
+  800: "#9000ff",
+  900: "#7f00ff",
+  A100: "#ffffff",
+  A200: "#f8f2ff",
+  A400: "#dcbfff",
+  A700: "#cda6ff",
+  contrastDefaultColor: "light",
+};
